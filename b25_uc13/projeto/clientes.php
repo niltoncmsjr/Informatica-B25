@@ -22,7 +22,7 @@ include("menu.php");
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Lista de Clientes</title>
+    <title>Lista de Funcionarios</title>
 </head>
 
 <body>
