@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+.navi {
+    background-color: #000000;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+}
+
+.nav-list a:hover {
+    color: #0b76e8;
+}

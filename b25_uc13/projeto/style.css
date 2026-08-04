@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: #eef2f7;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+.container {
+    /* border: 2px solid red; */
+    width: 100%;
+    min-height: calc(100vh - 60px) ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.div-cadastrar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 800px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 23px 35px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    /* border: 2px solid red; */
+}
+
+.div-nivel{
+    padding-top: 6px;
+    background-color: #e4e4e4;
+    border-radius: 6px;
+    height: 80px;
+}
+
+.div-nivel label{
+    margin-left: 5px;
+    margin-top: 25px;
+}
+
+#nivel{
+    margin-top: 12px;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    /* border: 2px solid blue; */
+}
+
+#input-comum{
+    margin-left: 25px;
+}
+
+.campo-titulo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.campo-titulo h2{
+    font-size: 28px;
+    color: #0b76e8;
+}
+
+.campo label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #1e1e1e;
+}
+
+.obrigatorio{
+    color: #f70000;
+    font-weight: bold;
+}
+
+.campo input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+}
+
+.campo-div {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 100%;
+}
+.campo-botao{
+    /* border: 2px solid rgb(10, 117, 188); */
+    width: 50%;
+}
+
+.campo-msg{
+     /* border: 2px solid rgba(208, 219, 0, 0.905); */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* margin-right: 2px; */
+    width: 48%;
+    color: #0b76e8;
+    font-style: italic;
+}
+
+button{
+    padding: 10px;
+    font-size: 16px;
+    background-color: #0b76e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #043870;
+}
+
+
+
+
+
+
+/* clientes.php */
+
+.container-clientes {
+    /* border: 2px solid red; */
+    width: 100%;
+    min-height: calc(100vh - 60px) ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.titulo-table {
+    margin: 30px 0;
+    /* border: 2px solid green; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.titulo-table h1{
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.titulo-table p{
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 1rem;
+}
+
+.tabela{
+    width: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+table{
+    border-collapse: collapse;
+    width: 70%;    
+}
+
+table th{
+    padding: 15px;
+    border: 1px solid #bdbdbd;
+    background-color: #eee;
+    text-align: center;
+}
+
+.acoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+td a{
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 3px;
+}
+
+table td{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #bdbdbd;
+    background-color: #fdfdfd;
+}
+
+
+
+#botao-editar{
+    background-color: #1707ff;
+    color: #ffffff;
+}
+
+#botao-editar:hover{
+    background-color: #090352;
+}
+
+#botao-deletar{
+    background-color: #e90e0e;
+    color: #ffffff;
+}
+
+#botao-deletar:hover{
+    background-color: #720202;
+}
+
+#form-deletar{
+    display: inline-block;
+    
+}
+
+
+
+/* DELETAR */
+
+
+
+
