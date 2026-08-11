@@ -15,6 +15,22 @@
             <li><a href="cadastrar_cliente.php">Cadastrar Clientes</a></li>
             <li><a href="clientes.php">Lista de Clientes</a></li>
         </ul>
+        <ul class="nav-list-user">
+            <li><a href="">
+                <?php 
+                include('conexao.php');
+
+                if(!isset($_SESSION)){
+                   session_start();
+                   echo $_SESSION['email'];
+                }        
+                
+                ?>
+            </a></li>
+        </ul>
+        <ul class="nav-list-sair">
+            <li><a href="clientes.php">Sair</a></li>
+        </ul>
     </nav>
     
 </body>
