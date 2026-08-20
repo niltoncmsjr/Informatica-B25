@@ -1,5 +1,14 @@
+<?php
+include('conexao.php');
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +16,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="menu.css">    
+    <link rel="stylesheet" href="menu.css">
 </head>
+
 <body>
     <nav class="navi">
         <ul class="nav-list">
-            <li><a href="cadastrar_cliente.php">Cadastrar Clientes</a></li>
+            <?php if ($_SESSION['nivel'] == "admin") { ?>
+                <li><a href="cadastrar_cliente.php">Cadastrar Clientes</a></li>
+            <?php } ?>
             <li><a href="clientes.php">Lista de Clientes</a></li>
         </ul>
         <ul class="nav-list-user">
             <li><a href="">
-                <?php 
-                include('conexao.php');
-
-                if(!isset($_SESSION)){
-                   session_start();
-                   echo $_SESSION['email'];
-                }        
-                
-                ?>
-            </a></li>
+                    <?php
+                        echo $_SESSION['email'];                   
+                    ?>
+                </a></li>
         </ul>
         <ul class="nav-list-sair">
-            <li><a href="clientes.php">Sair</a></li>
+            <li><a href="sair.php">Sair</a></li>
         </ul>
     </nav>
-    
+
 </body>
+
 </html>

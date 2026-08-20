@@ -3,6 +3,16 @@
 // Inclui o arquivo responsável pela conexão com o banco de dados
 include("conexao.php");
 
+if(!isset($_SESSION['nivel'])){
+    header("Location: index.php");
+    die();
+}
+
+if($_SESSION['nivel'] != "admin"){
+    header("Location: clientes.php");
+    die();
+}
+
 // Verifica se a página foi acessada através do método POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

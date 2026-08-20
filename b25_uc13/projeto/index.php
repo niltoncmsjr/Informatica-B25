@@ -54,11 +54,11 @@ if (count($_POST) > 0) {
             <form action="" method="POST">
                 <div class="campo-login">
                     <label for="">E-mail</label>
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" required>
                 </div>
                 <div class="campo-login">
                     <label for="">Senha</label>
-                    <input type="text" name="senha" required>
+                    <input type="text" name="senha"  required>
                 </div>
                 <div class="campo-login">
                     <button type="submit">Entrar</button>

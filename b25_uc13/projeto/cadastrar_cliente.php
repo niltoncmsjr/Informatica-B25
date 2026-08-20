@@ -2,6 +2,16 @@
 
 include("menu.php");
 
+if(!isset($_SESSION['nivel'])){
+    header("Location: index.php");
+    die();
+}
+
+if($_SESSION['nivel'] != "admin"){
+    header("Location: clientes.php");
+    die();
+}
+
 ?>
 
 

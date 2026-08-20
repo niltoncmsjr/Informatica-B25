@@ -2,12 +2,26 @@
 
 include("conexao.php");
 
-$codigo_sql = "SELECT * FROM clientes";
-$consulta_clientes = $conexao->query($codigo_sql) or die($conexao->error);
 
+if (isset($_GET['busca'])) {
+
+    $pesquisa = $conexao->real_escape_string($_GET['busca']);
+
+    $codigo_sql = "SELECT * FROM clientes
+                   WHERE nome LIKE '%$pesquisa%'
+                   OR email LIKE '%$pesquisa%'
+                   OR telefone LIKE '%$pesquisa%'";
+} else {
+    $codigo_sql = "SELECT * FROM clientes";
+}
+
+
+$consulta_clientes = $conexao->query($codigo_sql) or die($conexao->error);
 $num_linhas = $consulta_clientes->num_rows;
 
 include("menu.php");
+
+
 
 ?>
 
@@ -32,6 +46,13 @@ include("menu.php");
             <p>Todos os Clientes cadastrados no sistema</p>
         </div>
 
+        <div class="pesquisa">
+            <form action="" method="GET">
+                <input type="text" name="busca" placeholder="O que procura">
+                <button type="submit">Pesquisar</button>
+            </form>
+        </div>
+
         <div class="tabela">
             <table border="1" cellpadding="10">
                 <thead>
@@ -43,12 +64,14 @@ include("menu.php");
                     <th>Data Cadastro</th>
                     <th>Nivel</th>
                     <th>Ultima Alteração</th>
-                    <th>Ação</th>
+                    <?php if ($_SESSION['nivel'] == "admin") { ?>
+                        <th>Ação</th>
+                    <?php } ?>
                 </thead>
                 <tbody>
                     <?php if ($num_linhas == 0) { ?>
                         <tr>
-                            <td colspan="7">Nenhum Cliente foi cadastrado!</td>
+                            <td colspan="9">Nenhum Cliente foi cadastrado!</td>
                         </tr>
                         <?php
                     } else {
@@ -98,31 +121,33 @@ include("menu.php");
                                     ?>
                                 </td>
                                 <td><?php echo $ultima_alteracao; ?></td>
-                                <td>
-                                    <div class="acoes">
-                                        <button id="botao-editar"><a id="botao-editar"
-                                                href="editar_cliente.php?id=<?php echo $cliente['id']; ?>">Editar</a></button>
+                                <?php if ($_SESSION['nivel'] == "admin") { ?>
+                                    <td>
+                                        <div class="acoes">
+                                            <button id="botao-editar"><a id="botao-editar"
+                                                    href="editar_cliente.php?id=<?php echo $cliente['id']; ?>">Editar</a></button>
 
 
-                                        <!-- Formulário responsável por enviar o ID do cliente para exclusão -->
-                                        <form action="deletar_cliente.php" method="POST"
-                                            onsubmit="return confirm('Confirma a Exclusão do(a) <?php echo $cliente['nome']; ?>? ');">
-                                            <!-- Exibe uma caixa de confirmação antes de enviar o formulário.
+                                            <!-- Formulário responsável por enviar o ID do cliente para exclusão -->
+                                            <form action="deletar_cliente.php" method="POST"
+                                                onsubmit="return confirm('Confirma a Exclusão do(a) <?php echo $cliente['nome']; ?>? ');">
+                                                <!-- Exibe uma caixa de confirmação antes de enviar o formulário.
                                             Se o usuário clicar em "Cancelar", o envio é interrompido. -->
 
 
-                                            <!-- Campo oculto que armazena o ID do cliente.
+                                                <!-- Campo oculto que armazena o ID do cliente.
                                             Esse valor será enviado via POST para o arquivo deletar_cliente.php -->
-                                            <input type="hidden" name="id" value="<?php echo $cliente['id']; ?>">
+                                                <input type="hidden" name="id" value="<?php echo $cliente['id']; ?>">
 
-                                            <!-- Botão que envia o formulário e inicia o processo de exclusão -->
-                                            <button id="botao-deletar" type="submit">Deletar</button>
+                                                <!-- Botão que envia o formulário e inicia o processo de exclusão -->
+                                                <button id="botao-deletar" type="submit">Deletar</button>
 
-                                        </form>
+                                            </form>
 
-                                    </div>
+                                        </div>
 
-                                </td>
+                                    </td>
+                                <?php } ?>
                             </tr>
 
                     <?php

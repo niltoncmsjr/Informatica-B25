@@ -140,6 +140,35 @@ button:hover{
 
 /* clientes.php */
 
+.pesquisa{
+   width: 85%;
+   margin-top: 5px;
+   display: flex;
+   justify-content: right;
+   align-items: center;
+   margin-bottom: 20px;
+   /* border: 2px solid red; */
+}
+
+.pesquisa input{
+    font-size: 15px;
+}
+
+.pesquisa button{
+    padding: 6px;
+    font-size: 11px;
+    background-color: #0b9be8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pesquisa button:hover{
+    background-color: #0b51e8;
+}
+
+
 .container-clientes {
     /* border: 2px solid red; */
     width: 100%;
